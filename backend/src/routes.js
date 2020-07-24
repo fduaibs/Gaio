@@ -6,10 +6,6 @@ const WatsonController = require('./controllers/WatsonController');
 
 const routes = Router();
 
-routes.get('/teste', (request, response) => {
-  return response.json({ msg: 'tudo certo' })
-});
-
 routes.get('/users', UserController.index);
 routes.post('/users', UserController.store);
 
@@ -18,6 +14,5 @@ routes.post('/users/:user_id/comments', CommentController.store);
 routes.delete('/users/:user_id/comments/:comment_id', CommentController.destroy);
 
 routes.post('/synthesize', WatsonController.store);
-
 
 module.exports = routes;

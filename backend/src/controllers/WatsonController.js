@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const textToSpeech = require('../watson/');
 
 module.exports = {
@@ -14,7 +12,9 @@ module.exports = {
 
     const response = await textToSpeech.synthesize(synthesizeParams);
     const buffer = await textToSpeech.repairWavHeaderStream(response.result);
-       
-    res.json(buffer);
-  }
+
+    const bufferString64 = buffer.toString('base64');
+
+    res.json({ base64Audio: bufferString64 });
+  },
 };

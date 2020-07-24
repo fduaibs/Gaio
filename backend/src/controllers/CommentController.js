@@ -53,6 +53,6 @@ module.exports = {
     if(!deletedCount) {
       return res.status(400).json({ error: 'could not delete comment' });
     }
-    return res.json(deletedComment);
+    return res.json(deletedCount);
   }
 };
