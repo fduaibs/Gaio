@@ -3,7 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 class Comment extends Model {
   static init(sequelize) {
     super.init({
-      text: DataTypes.STRING,
+      text: DataTypes.STRING(1000),
     }, {
       sequelize
     })
