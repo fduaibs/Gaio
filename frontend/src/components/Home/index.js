@@ -15,7 +15,7 @@ export default function Home() {
   const [comments, setComments] = useState([]);
   const [audioSource, setAudioSource] = useState('');
 
-  const styles = useStyles();
+  const classes = useStyles();
 
   useEffect(() => {
     const storagedUser = localStorage.getItem('userId');
@@ -126,17 +126,17 @@ export default function Home() {
 
   return (
     <Container>
-      <Paper className={styles.PaperStyle} square={true}>
+      <Paper className={classes.PaperStyle} square={true}>
       <Container>
       <Grid container>
         <Grid item xs sm/>
-        <Grid container item xs={12} sm={10}>
-          <Grid className={styles.FullGridStyle} container item xs={12}>
+        <Grid container item xs={12} sm={12}>
+          <Grid className={classes.FullGridStyle} container item xs={12}>
             
           </Grid>
-          <Grid item xs={12} sm={5}>
+          <Grid item xs={12} sm={5} md={5}>
               <TextField
-                className={styles.SessionInputStyle}
+                className={classes.SessionInputStyle}
                 type="text"
                 label="ID da Sessão"
                 color="secondary"
@@ -145,7 +145,7 @@ export default function Home() {
                 onChange={e => setSession(e.target.value)}
               />
               <Button
-                className={styles.SessionButtonStyle}
+                className={classes.SessionButtonStyle}
                 variant="contained"
                 color="primary"
                 size="small"
@@ -155,7 +155,7 @@ export default function Home() {
                 Mudar
               </Button>
               <Button
-                className={styles.SessionRefreshButtonStyle}
+                className={classes.SessionRefreshButtonStyle}
                 variant="contained"
                 color="primary"
                 size="small"
@@ -166,7 +166,7 @@ export default function Home() {
               </Button>
             <form onSubmit={handleNewComment}>
               <TextField
-                className={styles.FormStyle}
+                className={classes.FormStyle}
                 id="standard-textarea"
                 type="text"
                 label="Comentário"
@@ -180,7 +180,7 @@ export default function Home() {
                 onChange={e => setComment(e.target.value)}
               />
               <Button
-                className={styles.FormButtonStyle}
+                className={classes.FormButtonStyle}
                 variant="contained"
                 color="primary"
                 fullWidth={true}
@@ -189,10 +189,10 @@ export default function Home() {
                 Cadastrar
               </Button>
             </form>
-            <Box className={styles.AudioPlayerStyle} autoPlay={true} component={ReactAudioPlayer} controls src={audioSource}/>
+            <Box className={classes.AudioPlayerStyle} autoPlay={true} component={ReactAudioPlayer} controls src={audioSource}/>
           </Grid>
           <Hidden xsDown>
-            <Grid container item className={styles.DividerStyle} xs sm>
+            <Grid container item className={classes.DividerStyle} xs sm={1} md={2}>
               <Divider orientation="vertical"/>
             </Grid>
           </Hidden>
@@ -201,17 +201,17 @@ export default function Home() {
               <Divider />
             </Grid>
           </Hidden>
-          <Grid item className={styles.CommentAreaStyle} xs={12} sm={5}>
+          <Grid item className={classes.CommentAreaStyle} xs={12} sm={6} md={5}>
             {comments.map(comment => (
-              <Card key={comment.id} className={styles.CardStyle} variant="outlined">
-              <CardContent className={styles.CardContentStyle}>
+              <Card key={comment.id} className={classes.CardStyle} variant="outlined">
+              <CardContent className={classes.CardContentStyle}>
                 <Typography color="textSecondary" gutterBottom>
                   {comment.text}
                 </Typography>
               </CardContent>
-              <CardActions className={styles.CardActionStyle}>
+              <CardActions className={classes.CardActionStyle}>
               <Button
-                  className={styles.CardActionButtonStyle}
+                  className={classes.CardActionButtonStyle}
                   variant="contained"
                   color="primary"
                   size="small"
