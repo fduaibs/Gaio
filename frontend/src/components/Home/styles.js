@@ -29,6 +29,9 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: '0.5rem',
     width: '100%',
   },
+  LinearProgressStyle: {
+    marginBottom: '0.5rem',
+  },
   DividerStyle: {
     justifyContent: 'center',
     height: '100%',
